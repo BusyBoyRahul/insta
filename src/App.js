@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import Login from "./Pages/Login";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import "./Style.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.js";
+import Signup from "./Pages/Signup";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
+  let navigate = useNavigate();
+  useEffect(() => {
+    const logid = localStorage.getItem('logid');
+    const logpass = localStorage.getItem('logpass');
+
+    if(logid){
+    if (logid != "undefined" && logpass != "undefined") {
+      // Redirect to the authenticated route
+      // Replace '/dashboard' with the desired authenticated route
+      //window.location.href = '/dashboard';
+      navigate("/dashboard");
+    }else{
+      navigate("/");
+
+    }}
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+     <Routes>
+      <Route path="/" element={<Login />}/>
+      <Route path="/signup" element={<Signup />}/>
+      <Route path="/dashboard" element={<Dashboard/>} />
+     </Routes>
+      
     </div>
   );
 }
