@@ -101,7 +101,7 @@ let navigate = useNavigate();
           </label>
           <label>
             <input value={password} onChange={(e)=> setPassword(e.target.value)} required="" placeholder="password" type={typo}/>
-            <span className='fs-1' onClick={eyechange}>{eye}</span>
+            <span className='fs-1 cursor' onClick={eyechange}>{eye}</span>
           </label>
         </div>
         <button type='Submit'>Log In</button>

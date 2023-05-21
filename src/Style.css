@@ -157,13 +157,17 @@
     opacity: .7;
   }
 
+  .cursor{
+    cursor: pointer;
+  }
+
 
   /* dark mode */
   /* The switch - the box around the slider */
 .switch {
     display: block;
-    --width-of-switch: 1.8em;
-    --height-of-switch: 1.8em;
+    --width-of-switch: 1.9em;
+    --height-of-switch: 1.9em;
     position: relative;
     width: var(--width-of-switch);
     height: var(--height-of-switch);
