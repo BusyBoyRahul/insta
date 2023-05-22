@@ -35,8 +35,8 @@ let navigate = useNavigate();
   };
 
 
-  const [mail, setMail] = useState();
-  const [password, setPassword] = useState();
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
   const [userdata, setUserdata] = useState([]);
 
   const loginn = (e) => {
