@@ -41,12 +41,16 @@ let navigate = useNavigate();
 
   const loginn = (e) => {
     e.preventDefault();
+    if(mail != "" && password != ""){
     axios.get(`https://64620fde185dd9877e4a080a.mockapi.io/api/v1/insta?mail=${mail}`).then((response) => {
         console.log(response.data);
         setUserdata(response.data[0]);
         console.log( userdata );
       })
       .catch((err) => console.log(err.message));
+    }else{
+      alert("enter details.");
+    }
 
   };
 
