@@ -72,13 +72,13 @@ let navigate = useNavigate();
   const eyechange = (e) => {
     e.preventDefault();
     if (eye.type.name == "VscEye") {
-      console.log("eye closed");
+      console.log(eye);
       setEye(<VscEyeClosed />);
       setTypo("text");
     } else {
       setEye(<VscEye />);
       setTypo("password");
-      console.log("eye opened");
+      console.log(eye);
     }
   };
 
@@ -121,5 +121,5 @@ let navigate = useNavigate();
   </div>
   
     </div>
-  )
+  );
 }
