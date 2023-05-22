@@ -37,7 +37,7 @@ let navigate = useNavigate();
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const register = (e) => {
-    
+    if( mail != "" || password != ""){
     e.preventDefault();
     axios
       .post("https://64620fde185dd9877e4a080a.mockapi.io/api/v1/insta", {
@@ -49,6 +49,7 @@ let navigate = useNavigate();
       })
       .catch((err) => console.log(err.message));
     console.log(mail, password);
+    }
   };
 
   const [eye, setEye] = useState(<VscEye />);

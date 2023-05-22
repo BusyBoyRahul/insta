@@ -46,7 +46,6 @@ let navigate = useNavigate();
         console.log(response.data);
         setUserdata(response.data[0]);
         console.log( userdata );
-
         
       })
       .catch((err) => console.log(err.message));
@@ -82,7 +81,7 @@ let navigate = useNavigate();
 
   const eyechange = (e) => {
     e.preventDefault();
-    if (eye.type.name == "tt") {
+    if (eye.type.name == "VscEye" || eye.type.name == "tt") {
       console.log(eye);
       console.log("eye open");
       setEye(<VscEyeClosed />);
