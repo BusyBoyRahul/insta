@@ -42,10 +42,12 @@ let navigate = useNavigate();
   const loginn = (e) => {
     e.preventDefault();
     if(mail != "" && password != ""){
-    axios.get(`https://64620fde185dd9877e4a080a.mockapi.io/api/v1/insta?mail=${mail}`).then((response) => {
+    axios.get(`https://64620fde185dd9877e4a080a.mockapi.io/api/v1/insta/?mail=${mail}`).then((response) => {
         console.log(response.data);
         setUserdata(response.data[0]);
         console.log( userdata );
+
+        
       })
       .catch((err) => console.log(err.message));
     }else{
@@ -54,9 +56,10 @@ let navigate = useNavigate();
 
   };
 
-  useEffect(() => {
+  useEffect(() =>{
     console.log(userdata , mail , password);
-    if (userdata.mail != "undefined") {
+    if(userdata != undefined ){
+    if (userdata.mail != undefined) {
       console.log(userdata.mail, userdata.password);
       if (mail == userdata.mail && password == userdata.password) {
         navigate("/dashboard");
@@ -66,8 +69,12 @@ let navigate = useNavigate();
       } else if(mail != userdata.mail || password != userdata.password) {
         alert("Email and password details are wrong");
       }
+    }}else{
+      alert("user not found");
+      console.log("user not found");
     }
   }, [userdata]);
+
   
 
   const [eye, setEye] = useState(<VscEye />);
@@ -77,12 +84,15 @@ let navigate = useNavigate();
     e.preventDefault();
     if (eye.type.name == "VscEye") {
       console.log(eye);
+      console.log("eye open");
       setEye(<VscEyeClosed />);
       setTypo("text");
     } else {
       setEye(<VscEye />);
       setTypo("password");
       console.log(eye);
+      console.log("eye close");
+
     }
   };
 
