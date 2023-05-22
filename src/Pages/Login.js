@@ -56,7 +56,7 @@ let navigate = useNavigate();
 
   useEffect(() => {
     console.log(userdata , mail , password);
-    if (userdata.mail != undefined) {
+    if (userdata.mail != "undefined") {
       console.log(userdata.mail, userdata.password);
       if (mail == userdata.mail && password == userdata.password) {
         navigate("/dashboard");
