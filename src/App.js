@@ -6,6 +6,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.js";
 import Signup from "./Pages/Signup";
 import Dashboard from "./Pages/Dashboard";
+import Jsondb from "./db.json";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Route path="/" element={<Login />}/>
       <Route path="/signup" element={<Signup />}/>
       <Route path="/dashboard" element={<Dashboard/>} />
+      <Route path="/db" element={<Jsondb/>} />
     
 
      </Routes>
