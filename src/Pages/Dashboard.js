@@ -67,7 +67,7 @@ console.log("navigated");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   useEffect(() => {
-    axios.get(`http://localhost:8000/posts`).then((postdata) => {
+    axios.get(`https://insta-beige.vercel.app/posts`).then((postdata) => {
       const reversedData = postdata.data.reverse();
         setDataz(reversedData);
         setTotalPages(Math.ceil(reversedData.length / ITEMS_PER_PAGE));
@@ -130,7 +130,7 @@ console.log("navigated");
   const upload = async(e) => {
     if(postpath){
    await axios
-    .post("http://localhost:8000/posts", {
+    .post("https://insta-beige.vercel.app/posts", {
       img: postpath,
       text: posttext,
     })
