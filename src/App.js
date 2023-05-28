@@ -7,6 +7,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.js";
 import Signup from "./Pages/Signup";
 import Dashboard from "./Pages/Dashboard";
 
+
 function App() {
   let navigate = useNavigate();
   useEffect(() => {
@@ -31,6 +32,8 @@ function App() {
       <Route path="/" element={<Login />}/>
       <Route path="/signup" element={<Signup />}/>
       <Route path="/dashboard" element={<Dashboard/>} />
+    
+
      </Routes>
       
     </div>
