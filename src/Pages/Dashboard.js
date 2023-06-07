@@ -67,7 +67,7 @@ console.log("navigated");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   useEffect(() => {
-    axios.get(`https://insta-beige.vercel.app/src`).then((postdata) => {
+    axios.get(`https://insta-beige.vercel.app/src/db.json/posts`).then((postdata) => {
       const reversedData = postdata.data.reverse();
         setDataz(reversedData);
         setTotalPages(Math.ceil(reversedData.length / ITEMS_PER_PAGE));
