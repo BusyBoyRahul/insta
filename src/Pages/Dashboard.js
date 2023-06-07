@@ -67,7 +67,7 @@ console.log("navigated");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   useEffect(() => {
-    axios.get(`https://insta-beige.vercel.app/db/posts`).then((postdata) => {
+    axios.get(`https://insta-beige.vercel.app/posts`).then((postdata) => {
       const reversedData = postdata.data.reverse();
         setDataz(reversedData);
         setTotalPages(Math.ceil(reversedData.length / ITEMS_PER_PAGE));
@@ -88,7 +88,7 @@ console.log("navigated");
 
   const [postimg, setPostimg] = useState();
   const [posttext, setPosttext] = useState('');
-  const [postpath, setPostpath] = useState('');
+  //const [postpath, setPostpath] = useState('');
 
 
   const handleSubmit = async(e) => {
@@ -100,15 +100,26 @@ console.log("navigated");
       if(postimg){
       const reader = new FileReader();
       reader.onload = () => {
-        setPostpath(reader.result);
-        console.log(postimg);
+        const postpath = reader.result;
+        console.log(postpath);
+
+        axios.post("https://insta-beige.vercel.app/posts", {
+          img: postpath,
+          text: posttext,
+        })
+          .then((response) => {
+            window.location.reload();
+            //navigate('/dashboard');
+            console.log(response);
+          })
+          .catch((err) => console.log(err.message));
       };
       const postlink = reader.readAsDataURL(postimg);
-      setPostpath(postlink);
-      console.log(postpath);
+      //setPostpath(reader.readAsDataURL(postimg));
+      //console.log(postpath);
       console.log(postlink);
 
-      upload();
+      
     }
       
     }else{
@@ -127,21 +138,21 @@ console.log("navigated");
   };
 
 
-  const upload = async(e) => {
-    if(postpath){
-   await axios
-    .post("https://insta-beige.vercel.app/db/posts", {
-      img: postpath,
-      text: posttext,
-    })
-    .then((response) => {
-      window.location.reload();
-      navigate('/dashboard');
-      console.log(response);
-    })
-    .catch((err) => console.log(err.message));
-    }
-  }
+  // const upload = async(e) => {
+  //   if(postpath){
+  //  await axios
+  //   .post("http://localhost:8000/posts", {
+  //     img: postpath,
+  //     text: posttext,
+  //   })
+  //   .then((response) => {
+  //     window.location.reload();
+  //     navigate('/dashboard');
+  //     console.log(response);
+  //   })
+  //   .catch((err) => console.log(err.message));
+  //   }
+  // }
 
   return (
     <div className={mode}>
