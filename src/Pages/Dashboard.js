@@ -104,7 +104,7 @@ console.log("navigated");
         const postpath = reader.result;
         console.log(postpath);
 
-        axios.post("https://insta-beige.vercel.app/posts", {
+        axios.post("https://insta-beige.vercel.app/db.json", {
           img: postpath,
           text: posttext,
         })
