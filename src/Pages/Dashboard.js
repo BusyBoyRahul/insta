@@ -69,7 +69,7 @@ console.log("navigated");
   useEffect(() => {
     axios.get(`https://insta-beige.vercel.app/db.json`).then((postdata) => {
       console.log(postdata);
-      const reversedData = postdata.posts.data.reverse();
+      const reversedData = postdata.data.posts.reverse();
         setDataz(reversedData);
         setTotalPages(Math.ceil(reversedData.length / ITEMS_PER_PAGE));
       })
