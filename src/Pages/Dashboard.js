@@ -109,7 +109,7 @@ console.log("navigated");
         })
           .then((response) => {
             window.location.reload();
-            //navigate('/dashboard');
+            navigate('/dashboard');
             console.log(response);
           })
           .catch((err) => console.log(err.message));
